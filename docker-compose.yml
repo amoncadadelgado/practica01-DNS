@@ -1,0 +1,20 @@
+version: "2.2"
+services:
+  asir_bind9:
+    image: internetsystemsconsortium/bind9:9.16
+    ports:
+      - 53:53
+    volumes:
+      - conf:/etc/bind
+      - cache:/var/cache/bind
+      - lib:/var/lib/bind
+      - log:/var/log
+  asir_cliente:
+    image: ubuntu
+    stdin_open: true  # docker run -i
+    tty: true         # docker run -t
+volumes:
+  conf:
+  cache:
+  lib:
+  log:
