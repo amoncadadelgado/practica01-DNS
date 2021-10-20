@@ -46,3 +46,5 @@
 
 ## Comando para instalar nano en el cliente.
 - apt-get install nano
+
+## Comando para instalar
