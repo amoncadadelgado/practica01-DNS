@@ -47,4 +47,5 @@
 ## Comando para instalar nano en el cliente.
 - apt-get install nano
 
-## Comando para instalar
+## Esta es la práctica01 DNS
+- Esta es la práctica a entregar.
