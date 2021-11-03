@@ -3,7 +3,8 @@ services:
   asir_bind9:
     image: internetsystemsconsortium/bind9:9.16
     networks:
-      - br02
+      br02:
+        ipv4_address: 10.1.0.4
     ports:
       - 53:53
     volumes:
@@ -14,11 +15,12 @@ services:
   asir_cliente:
     image: copia_dns_main_asir:cliente
     networks:
-      - br02
+      br02:
+        ipv4_address: 10.1.0.3
     stdin_open: true  # docker run -i
     tty: true         # docker run -t
     dns:
-      - 172.27.0.2
+      - 10.1.0.4
 volumes:
   conf:
     external: true
