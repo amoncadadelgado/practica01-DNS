@@ -1,7 +1,9 @@
-version: "2.2"
+version: "3.3"
 services:
   asir_bind9:
     image: internetsystemsconsortium/bind9:9.16
+    networks:
+      - br02
     ports:
       - 53:53
     volumes:
@@ -10,11 +12,26 @@ services:
       - lib:/var/lib/bind
       - log:/var/log
   asir_cliente:
-    image: ubuntu
+    image: copia_dns_main_asir:cliente
+    networks:
+      - br02
     stdin_open: true  # docker run -i
     tty: true         # docker run -t
+    dns:
+      - 172.27.0.2
 volumes:
   conf:
+    external: true
+    name: dns-main_conf
   cache:
+    external: true
+    name: dns-main_cache
   lib:
+    external: true
+    name: dns-main_lib
   log:
+    external: true
+    name: dns-main_log
+networks: 
+  br02:
+    external: true
