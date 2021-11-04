@@ -78,8 +78,7 @@ Dicho comando indica que la red br02 ya existe, y que se va a trabajar con ella.
 Añadiendo el siguiente comando, a la altura de la etiqueta image de cada contenedor, se especifica que dicha ip hace referencía al servidor dns que atendera nuestras peticiones de manera predeterminada.
 ~~~
 dns:
-
-    - 10.1.0.4`   
+    - 10.1.0.4
 ~~~
 
 En un principio funciona, pero hay que tener en cuenta que a partir de determinada versión del sistema operativo ya no se utiliza el archivo **resolv.conf** como configurador del servidor dns predeterminado. En cambio se utiliza el servicio systemd, el cual trabaja de otra forma. Por eso, cada vez que se reiniciaba el cliente, el valor predeterminado del archivo resolv.conf volvía al predeterminado (127.0.0.11).
